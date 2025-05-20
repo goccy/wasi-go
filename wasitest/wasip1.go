@@ -10,11 +10,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stealthrocket/wasi-go"
-	"github.com/stealthrocket/wasi-go/imports/wasi_snapshot_preview1"
 	"github.com/stealthrocket/wazergo"
 	"github.com/tetratelabs/wazero"
 	"github.com/tetratelabs/wazero/sys"
+
+	"github.com/goccy/wasi-go"
+	"github.com/goccy/wasi-go/imports/wasi_snapshot_preview1"
 )
 
 // TestConfig carries the configuration used to create systems to run the test

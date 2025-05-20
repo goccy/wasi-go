@@ -3,8 +3,9 @@ package unix
 import (
 	"unsafe"
 
-	"github.com/stealthrocket/wasi-go"
 	"golang.org/x/sys/unix"
+
+	"github.com/goccy/wasi-go"
 )
 
 const (

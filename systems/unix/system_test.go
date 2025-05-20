@@ -13,11 +13,12 @@ import (
 	"testing/fstest"
 	"time"
 
-	"github.com/stealthrocket/wasi-go"
-	"github.com/stealthrocket/wasi-go/systems/unix"
-	"github.com/stealthrocket/wasi-go/wasitest"
 	"github.com/tetratelabs/wazero/sys"
 	sysunix "golang.org/x/sys/unix"
+
+	"github.com/goccy/wasi-go"
+	"github.com/goccy/wasi-go/systems/unix"
+	"github.com/goccy/wasi-go/wasitest"
 )
 
 func TestFS(t *testing.T) {

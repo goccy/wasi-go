@@ -10,7 +10,7 @@ import (
 	"syscall"
 	"testing"
 
-	"github.com/stealthrocket/wasi-go"
+	"github.com/goccy/wasi-go"
 )
 
 func TestErrno(t *testing.T) {

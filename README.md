@@ -1,5 +1,5 @@
-[![Build](https://github.com/stealthrocket/wasi-go/actions/workflows/wasi-testuite.yml/badge.svg)](https://github.com/stealthrocket/wasi-go/actions/workflows/go.yml)
-[![Go Reference](https://pkg.go.dev/badge/github.com/stealthrocket/wasi-go.svg)](https://pkg.go.dev/github.com/stealthrocket/wasi-go)
+[![Build](https://github.com/goccy/wasi-go/actions/workflows/wasi-testuite.yml/badge.svg)](https://github.com/goccy/wasi-go/actions/workflows/go.yml)
+[![Go Reference](https://pkg.go.dev/badge/github.com/goccy/wasi-go.svg)](https://pkg.go.dev/github.com/goccy/wasi-go)
 [![Apache 2 License](https://img.shields.io/badge/license-Apache%202-blue.svg)](LICENSE)
 
 # WASI
@@ -83,7 +83,7 @@ A `wasirun` command is provided for running WebAssembly modules that use WASI ho
 It bundles the WASI implementation from this repository with the [wazero][wazero] runtime.
 
 ```console
-$ go install github.com/stealthrocket/wasi-go/cmd/wasirun@latest
+$ go install github.com/goccy/wasi-go/cmd/wasirun@latest
 ```
 
 The `wasirun` command has many options for controlling the capabilities of the WebAssembly
@@ -142,17 +142,17 @@ Remember to be respectful and open minded!
 
 [wasm]: https://webassembly.org
 [wasi]: https://wasi.dev
-[system]: https://github.com/stealthrocket/wasi-go/blob/main/system.go
-[unix-system]: https://github.com/stealthrocket/wasi-go/blob/main/systems/unix/system.go
-[host-module]: https://github.com/stealthrocket/wasi-go/blob/main/imports/wasi_snapshot_preview1/module.go
+[system]: https://github.com/goccy/wasi-go/blob/main/system.go
+[unix-system]: https://github.com/goccy/wasi-go/blob/main/systems/unix/system.go
+[host-module]: https://github.com/goccy/wasi-go/blob/main/imports/wasi_snapshot_preview1/module.go
 [preview1]: https://github.com/WebAssembly/WASI/blob/e324ce3/legacy/preview1/docs.md
 [wazero]: https://wazero.io
-[wasirun]: https://github.com/stealthrocket/wasi-go/blob/main/cmd/wasirun/main.go
-[wasitest]: https://github.com/stealthrocket/wasi-go/tree/main/wasitest
-[tracer]: https://github.com/stealthrocket/wasi-go/blob/main/tracer.go
-[sockets-extension]: https://github.com/stealthrocket/wasi-go/blob/main/sockets_extension.go
+[wasirun]: https://github.com/goccy/wasi-go/blob/main/cmd/wasirun/main.go
+[wasitest]: https://github.com/goccy/wasi-go/tree/main/wasitest
+[tracer]: https://github.com/goccy/wasi-go/blob/main/tracer.go
+[sockets-extension]: https://github.com/goccy/wasi-go/blob/main/sockets_extension.go
 [go-121]: https://go.dev/blog/go1.21
-[go-script]: https://github.com/stealthrocket/wasi-go/blob/main/share/go_wasip1_wasm_exec
+[go-script]: https://github.com/goccy/wasi-go/blob/main/share/go_wasip1_wasm_exec
 [wasmer]: https://github.com/wasmerio/wasmer
 [wasmedge]: https://github.com/WasmEdge/WasmEdge
 [lunatic]: https://github.com/lunatic-solutions/lunatic

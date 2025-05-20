@@ -8,13 +8,14 @@ import (
 	"fmt"
 	"syscall"
 
-	"github.com/stealthrocket/wasi-go"
-	"github.com/stealthrocket/wasi-go/imports/wasi_snapshot_preview1"
-	"github.com/stealthrocket/wasi-go/internal/descriptor"
-	"github.com/stealthrocket/wasi-go/internal/sockets"
-	"github.com/stealthrocket/wasi-go/systems/unix"
 	"github.com/stealthrocket/wazergo"
 	"github.com/tetratelabs/wazero"
+
+	"github.com/goccy/wasi-go"
+	"github.com/goccy/wasi-go/imports/wasi_snapshot_preview1"
+	"github.com/goccy/wasi-go/internal/descriptor"
+	"github.com/goccy/wasi-go/internal/sockets"
+	"github.com/goccy/wasi-go/systems/unix"
 )
 
 // Instantiate compiles and instantiates the WASI module and binds it to

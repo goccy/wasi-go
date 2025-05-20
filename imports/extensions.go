@@ -1,8 +1,9 @@
 package imports
 
 import (
-	"github.com/stealthrocket/wasi-go/imports/wasi_snapshot_preview1"
 	"github.com/tetratelabs/wazero"
+
+	"github.com/goccy/wasi-go/imports/wasi_snapshot_preview1"
 )
 
 // DetectExtensions detects extensions to WASI preview 1.

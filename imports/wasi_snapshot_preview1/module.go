@@ -5,11 +5,12 @@ import (
 	"encoding/binary"
 	"fmt"
 
-	"github.com/stealthrocket/wasi-go"
 	"github.com/stealthrocket/wazergo"
 	. "github.com/stealthrocket/wazergo/types"
 	"github.com/tetratelabs/wazero/api"
 	"github.com/tetratelabs/wazero/sys"
+
+	"github.com/goccy/wasi-go"
 )
 
 // HostModuleName is the name of the host module.

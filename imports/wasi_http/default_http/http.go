@@ -3,8 +3,9 @@ package default_http
 import (
 	"context"
 
-	"github.com/stealthrocket/wasi-go/imports/wasi_http/types"
 	"github.com/tetratelabs/wazero"
+
+	"github.com/goccy/wasi-go/imports/wasi_http/types"
 )
 
 const ModuleName = "default-outgoing-HTTP"

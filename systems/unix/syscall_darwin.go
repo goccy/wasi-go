@@ -4,8 +4,9 @@ import (
 	"syscall"
 	"unsafe"
 
-	"github.com/stealthrocket/wasi-go"
 	"golang.org/x/sys/unix"
+
+	"github.com/goccy/wasi-go"
 )
 
 func accept(socket, flags int) (int, unix.Sockaddr, error) {

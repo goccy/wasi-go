@@ -3,8 +3,9 @@ package unix
 import (
 	"context"
 
-	"github.com/stealthrocket/wasi-go"
 	"golang.org/x/sys/unix"
+
+	"github.com/goccy/wasi-go"
 )
 
 type FD int

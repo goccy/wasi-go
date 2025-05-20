@@ -5,8 +5,8 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/stealthrocket/wasi-go"
-	"github.com/stealthrocket/wasi-go/internal/sockets"
+	"github.com/goccy/wasi-go"
+	"github.com/goccy/wasi-go/internal/sockets"
 )
 
 // PathOpenSockets is an extension to WASI preview 1 that adds the ability to

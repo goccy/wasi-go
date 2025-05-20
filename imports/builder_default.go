@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"runtime"
 
-	"github.com/stealthrocket/wasi-go"
+	"github.com/goccy/wasi-go"
 	"github.com/tetratelabs/wazero"
 )
 
