@@ -6,7 +6,7 @@
 > This project is a fork of github.com/stealthrocket/wasi-go. To use it, you need to add a replace directive to your go.mod by the following command.
 
 ```
-go mod edit -replace github.com/stealthrocket/wasi-go=github.com/goccy/wasi-go
+go mod edit -replace github.com/stealthrocket/wasi-go=github.com/goccy/wasi-go@main
 ```
 
 # WASI
