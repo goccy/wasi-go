@@ -249,7 +249,7 @@ func run(wasmFile string, args []string) error {
 		return err
 	}
 	if len(wasiHttpAddr) > 0 {
-		handler := wasiHTTP.MakeHandler(ctx, instance)
+		handler := wasiHTTP.MakeHandler(instance)
 		http.Handle(wasiHttpPath, handler)
 		return http.ListenAndServe(wasiHttpAddr, nil)
 	}
