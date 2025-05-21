@@ -2,6 +2,13 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/goccy/wasi-go.svg)](https://pkg.go.dev/github.com/goccy/wasi-go)
 [![Apache 2 License](https://img.shields.io/badge/license-Apache%202-blue.svg)](LICENSE)
 
+> ![IMPORTANT]
+> This project is a fork of github.com/stealthrocket/wasi-go. To use it, you need to add a replace directive to your go.mod by the following command.
+
+```
+go mod edit -replace github.com/stealthrocket/wasi-go=github.com/goccy/wasi-go@main
+```
+
 # WASI
 
 The [WebAssembly][wasm] System Interface ([WASI][wasi]) is a set of standard
