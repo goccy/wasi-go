@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/stealthrocket/wasi-go"
+	"github.com/goccy/wasi-go"
 )
 
 func testContext(t *testing.T) (context.Context, context.CancelFunc) {

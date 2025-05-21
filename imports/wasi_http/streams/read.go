@@ -5,8 +5,9 @@ import (
 	"encoding/binary"
 	"log"
 
-	"github.com/stealthrocket/wasi-go/imports/wasi_http/common"
 	"github.com/tetratelabs/wazero/api"
+
+	"github.com/goccy/wasi-go/imports/wasi_http/common"
 )
 
 func (s *Streams) streamReadFn(ctx context.Context, mod api.Module, stream_handle uint32, length uint64, out_ptr uint32) {

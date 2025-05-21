@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/stealthrocket/wasi-go"
+	"github.com/goccy/wasi-go"
 )
 
 func TestInet4AddressMarshalJSON(t *testing.T) {

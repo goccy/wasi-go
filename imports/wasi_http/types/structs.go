@@ -8,8 +8,9 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/stealthrocket/wasi-go/imports/wasi_http/common"
 	"github.com/tetratelabs/wazero/api"
+
+	"github.com/goccy/wasi-go/imports/wasi_http/common"
 )
 
 type Fields map[string][]string

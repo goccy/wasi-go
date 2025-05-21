@@ -5,8 +5,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stealthrocket/wasi-go"
 	"github.com/tetratelabs/wazero/sys"
+
+	"github.com/goccy/wasi-go"
 )
 
 var proc = testSuite{

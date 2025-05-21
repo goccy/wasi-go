@@ -4,8 +4,9 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/stealthrocket/wasi-go/imports/wasi_http/types"
 	"github.com/tetratelabs/wazero/api"
+
+	"github.com/goccy/wasi-go/imports/wasi_http/types"
 )
 
 type WasmServer struct {

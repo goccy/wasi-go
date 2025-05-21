@@ -5,8 +5,9 @@ import (
 	"slices"
 	"testing"
 
-	"github.com/stealthrocket/wasi-go"
 	"golang.org/x/exp/maps"
+
+	"github.com/goccy/wasi-go"
 )
 
 // TestSystem is a test suite which validates the behavior of wasi.System

@@ -4,8 +4,9 @@ import (
 	"runtime/debug"
 	"unsafe"
 
-	"github.com/stealthrocket/wasi-go"
 	"golang.org/x/sys/unix"
+
+	"github.com/goccy/wasi-go"
 )
 
 // This function is used to automtically retry syscalls when they return EINTR

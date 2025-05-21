@@ -12,10 +12,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/stealthrocket/wasi-go"
-	"github.com/stealthrocket/wasi-go/imports"
 	"github.com/tetratelabs/wazero"
 	"github.com/tetratelabs/wazero/sys"
+
+	"github.com/goccy/wasi-go"
+	"github.com/goccy/wasi-go/imports"
 )
 
 type handler struct {

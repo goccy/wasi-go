@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/stealthrocket/wasi-go"
+	"github.com/goccy/wasi-go"
 )
 
 var file = testSuite{

@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/stealthrocket/wasi-go/internal/descriptor"
+	"github.com/goccy/wasi-go/internal/descriptor"
 )
 
 // File is an interface used as constraint in the FileType generic type

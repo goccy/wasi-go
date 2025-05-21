@@ -6,11 +6,12 @@ import (
 	"io"
 	"unsafe"
 
-	"github.com/stealthrocket/wasi-go"
 	"github.com/stealthrocket/wazergo"
 	. "github.com/stealthrocket/wazergo/types"
 	"github.com/stealthrocket/wazergo/wasm"
 	"github.com/tetratelabs/wazero/api"
+
+	"github.com/goccy/wasi-go"
 )
 
 // WasmEdgeV1 is the original WasmEdge sockets extension to WASI preview 1.

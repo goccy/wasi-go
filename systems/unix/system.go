@@ -12,8 +12,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/stealthrocket/wasi-go"
 	"golang.org/x/sys/unix"
+
+	"github.com/goccy/wasi-go"
 )
 
 // System is a WASI preview 1 implementation for Unix.

@@ -11,9 +11,10 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/stealthrocket/wasi-go/imports/wasi_http/common"
-	"github.com/stealthrocket/wasi-go/imports/wasi_http/streams"
 	"github.com/tetratelabs/wazero/api"
+
+	"github.com/goccy/wasi-go/imports/wasi_http/common"
+	"github.com/goccy/wasi-go/imports/wasi_http/streams"
 )
 
 type Request struct {

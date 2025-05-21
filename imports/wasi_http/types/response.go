@@ -9,8 +9,9 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/stealthrocket/wasi-go/imports/wasi_http/streams"
 	"github.com/tetratelabs/wazero/api"
+
+	"github.com/goccy/wasi-go/imports/wasi_http/streams"
 )
 
 type Response struct {
