@@ -11,9 +11,9 @@ import (
 	"path/filepath"
 	"runtime/debug"
 
-	"github.com/stealthrocket/wasi-go"
-	"github.com/stealthrocket/wasi-go/imports"
-	"github.com/stealthrocket/wasi-go/imports/wasi_http"
+	"github.com/goccy/wasi-go"
+	"github.com/goccy/wasi-go/imports"
+	"github.com/goccy/wasi-go/imports/wasi_http"
 	"github.com/tetratelabs/wazero"
 	"github.com/tetratelabs/wazero/sys"
 )
@@ -249,7 +249,7 @@ func run(wasmFile string, args []string) error {
 		return err
 	}
 	if len(wasiHttpAddr) > 0 {
-		handler := wasiHTTP.MakeHandler(instance)
+		handler := wasiHTTP.MakeHandler(ctx, instance)
 		http.Handle(wasiHttpPath, handler)
 		return http.ListenAndServe(wasiHttpAddr, nil)
 	}
