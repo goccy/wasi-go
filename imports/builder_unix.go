@@ -15,6 +15,7 @@ import (
 	"github.com/goccy/wasi-go/imports/wasi_snapshot_preview1"
 	"github.com/goccy/wasi-go/internal/descriptor"
 	"github.com/goccy/wasi-go/internal/sockets"
+	"github.com/goccy/wasi-go/net"
 	"github.com/goccy/wasi-go/systems/unix"
 )
 
@@ -190,6 +191,13 @@ func (b *Builder) Instantiate(ctx context.Context, runtime wazero.Runtime) (ctxr
 	var extensions []wasi_snapshot_preview1.Extension
 	if b.socketsExtension != nil {
 		extensions = append(extensions, *b.socketsExtension)
+	}
+
+	// Add wasi-go net extension if enabled
+	if b.wasiGoNetExtension {
+		if err := net.AddHostModule(ctx, runtime); err != nil {
+			return ctx, nil, fmt.Errorf("failed to add wasi-go-net host module: %w", err)
+		}
 	}
 
 	hostModule := wasi_snapshot_preview1.NewHostModule(extensions...)
