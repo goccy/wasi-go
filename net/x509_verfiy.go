@@ -11,8 +11,10 @@ import (
 )
 
 type VerifyOptions struct {
-	Chain   [][]byte `json:"chain"`
-	DNSName string   `json:"dnsName"`
+	Leaf          []byte   `json:"leaf"`
+	Roots         [][]byte `json:"roots"`
+	Intermediates [][]byte `json:"intermediates"`
+	DNSName       string   `json:"dnsName"`
 }
 
 func addVerifyCertification(host wazero.HostModuleBuilder) {
@@ -39,22 +41,37 @@ func addVerifyCertification(host wazero.HostModuleBuilder) {
 }
 
 func systemVerify(opts *VerifyOptions) error {
-	if len(opts.Chain) == 0 {
-		return fmt.Errorf("failed to find chain from verify option")
-	}
-	leaf, err := x509.ParseCertificate(opts.Chain[0])
+	leaf, err := x509.ParseCertificate(opts.Leaf)
 	if err != nil {
 		return err
 	}
-	pool := x509.NewCertPool()
-	for _, der := range opts.Chain[1:] {
-		if ic, err := x509.ParseCertificate(der); err == nil {
-			pool.AddCert(ic)
+	var (
+		roots, intermediates *x509.CertPool
+	)
+	if len(opts.Roots) != 0 {
+		roots = x509.NewCertPool()
+	}
+	if len(opts.Intermediates) != 0 {
+		intermediates = x509.NewCertPool()
+	}
+	for _, root := range opts.Roots {
+		c, err := x509.ParseCertificate(root)
+		if err != nil {
+			continue
 		}
+		roots.AddCert(c)
+	}
+	for _, in := range opts.Intermediates {
+		c, err := x509.ParseCertificate(in)
+		if err != nil {
+			continue
+		}
+		intermediates.AddCert(c)
 	}
 	if _, err := leaf.Verify(x509.VerifyOptions{
 		DNSName:       opts.DNSName,
-		Intermediates: pool,
+		Roots:         roots,
+		Intermediates: intermediates,
 	}); err != nil {
 		return fmt.Errorf("failed to verify: %w", err)
 	}
