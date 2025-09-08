@@ -17,7 +17,7 @@ type VerifyOptions struct {
 	DNSName       string   `json:"dnsName"`
 }
 
-func addVerifyCertification(host wazero.HostModuleBuilder) {
+func AddHostFunctions(host wazero.HostModuleBuilder) {
 	host.NewFunctionBuilder().WithGoModuleFunction(
 		api.GoModuleFunc(func(ctx context.Context, mod api.Module, stack []uint64) {
 			ptrAddr := api.DecodeU32(stack[2])

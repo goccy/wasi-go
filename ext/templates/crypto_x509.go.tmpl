@@ -1,0 +1,58 @@
+//go:build wasip1
+
+package x509
+
+import (
+	"fmt"
+	_ "unsafe"
+)
+
+//go:linkname wasip1_verify_certification github.com/goccy/wasi-go/ext/wasip1/crypto/x509.VerifyCertification
+func wasip1_verify_certification(string, []byte, [][]byte, [][]byte) error
+
+func (c *Certificate) verifyWasip1(opts *VerifyOptions) (chains [][]*Certificate, err error) {
+	if len(c.Raw) == 0 {
+		return nil, errNotParsed
+	}
+	for i := 0; i < opts.Intermediates.len(); i++ {
+		c, _, err := opts.Intermediates.cert(i)
+		if err != nil {
+			return nil, fmt.Errorf("crypto/x509: error fetching intermediate: %w", err)
+		}
+		if len(c.Raw) == 0 {
+			return nil, errNotParsed
+		}
+	}
+	var (
+		leaf          = c.Raw
+		roots         [][]byte
+		intermediates [][]byte
+	)
+	if opts.Roots != nil {
+		for _, lc := range opts.Roots.lazyCerts {
+			c, err := lc.getCert()
+			if err != nil {
+				return nil, err
+			}
+			roots = append(roots, c.Raw)
+		}
+	}
+	if opts.Intermediates != nil {
+		for _, lc := range opts.Intermediates.lazyCerts {
+			c, err := lc.getCert()
+			if err != nil {
+				return nil, err
+			}
+			intermediates = append(intermediates, c.Raw)
+		}
+	}
+	if err := wasip1_verify_certification(
+		opts.DNSName,
+		leaf,
+		roots,
+		intermediates,
+	); err != nil {
+		return nil, err
+	}
+	return [][]*Certificate{{c}}, nil
+}
