@@ -1,0 +1,22 @@
+//go:build wasip1
+
+package net
+
+import (
+	"context"
+	_ "unsafe"
+)
+
+//go:linkname wasip1_dial_context github.com/goccy/wasi-go/ext/wasip1/net.DialContext
+func wasip1_dial_context(context.Context, string, string) (Conn, error)
+
+//go:linkname wasip1_listen github.com/goccy/wasi-go/ext/wasip1/net.Listen
+func wasip1_listen(string, string) (Listener, error)
+
+func (d *Dialer) dialContextWasip1(ctx context.Context, network, address string) (Conn, error) {
+	return wasip1_dial_context(ctx, network, address)
+}
+
+func listenWasip1(network string, address string) (Listener, error) {
+	return wasip1_listen(network, address)
+}

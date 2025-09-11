@@ -40,6 +40,7 @@ type Builder struct {
 	tracerOptions      []wasi.TracerOption
 	decorators         []wasi_snapshot_preview1.Decorator
 	wrappers           []func(wasi.System) wasi.System
+	wasiGoExtension    bool
 	errors             []error
 	maxOpenFiles       int
 	maxOpenDirs        int
@@ -232,5 +233,13 @@ func (b *Builder) WithMaxOpenFiles(n int) *Builder {
 // be opened by the guest module.
 func (b *Builder) WithMaxOpenDirs(n int) *Builder {
 	b.maxOpenDirs = n
+	return b
+}
+
+// WithWasiGoExtension enables the wasi-go extension.
+// When enabled, the ext package's AddHostModule will be called during instantiation.
+// Note: The guest module must import the github.com/goccy/wasi-go/ext/wasip1 package.
+func (b *Builder) WithWasiGoExtension() *Builder {
+	b.wasiGoExtension = true
 	return b
 }

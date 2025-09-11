@@ -1,0 +1,18 @@
+//go:build wasip1
+
+package exec
+
+import (
+	_ "unsafe"
+)
+
+//go:linkname wasip1_start_command github.com/goccy/wasi-go/ext/wasip1/os/exec.StartCommand
+func wasip1_start_command(*Cmd) error
+
+func (c *Cmd) startWasip1() error {
+	return wasip1_start_command(c)
+}
+
+func (c *Cmd) waitWasip1() error {
+	return nil
+}

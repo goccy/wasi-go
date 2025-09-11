@@ -12,6 +12,7 @@ import (
 	"github.com/tetratelabs/wazero"
 
 	"github.com/goccy/wasi-go"
+	"github.com/goccy/wasi-go/ext"
 	"github.com/goccy/wasi-go/imports/wasi_snapshot_preview1"
 	"github.com/goccy/wasi-go/internal/descriptor"
 	"github.com/goccy/wasi-go/internal/sockets"
@@ -190,6 +191,13 @@ func (b *Builder) Instantiate(ctx context.Context, runtime wazero.Runtime) (ctxr
 	var extensions []wasi_snapshot_preview1.Extension
 	if b.socketsExtension != nil {
 		extensions = append(extensions, *b.socketsExtension)
+	}
+
+	// Add wasi-go net extension if enabled
+	if b.wasiGoExtension {
+		if err := ext.AddHostModule(ctx, runtime); err != nil {
+			return ctx, nil, fmt.Errorf("failed to add wasi-go/ext host module: %w", err)
+		}
 	}
 
 	hostModule := wasi_snapshot_preview1.NewHostModule(extensions...)
