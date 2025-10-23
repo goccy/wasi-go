@@ -235,6 +235,9 @@ func (s *System) PollOneOff(ctx context.Context, subscriptions []wasi.Subscripti
 			timeoutMillis = -1
 		case !deadline.IsZero():
 			timeoutMillis = int(time.Until(deadline).Milliseconds())
+			if timeoutMillis < 0 {
+				timeoutMillis = 0
+			}
 		}
 
 		n, err := unix.Poll(s.pollfds, timeoutMillis)
